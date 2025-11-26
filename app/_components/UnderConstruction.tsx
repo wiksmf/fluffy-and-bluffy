@@ -10,12 +10,12 @@ export default function UnderConstruction({ message }: { message?: string }) {
         fill
         alt="Hero Image"
         placeholder="blur"
-        className="absolute left-0 top-0 h-full w-full object-cover z-0"
+        className="absolute left-0 top-0 z-0 h-full w-full object-cover"
       />
 
       <div className="absolute inset-0 bg-black/75"></div>
 
-      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center justify-center text-balance px-2 text-center text-white md:px-5">
+      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center justify-center text-balance px-2 text-center text-gray-50 md:px-5">
         <h1 className="text-balance font-pollerone text-3xl font-bold leading-tight md:text-4xl lg:text-5xl">
           Page Under Construction
         </h1>

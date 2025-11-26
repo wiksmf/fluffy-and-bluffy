@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Quicksand, Poller_One } from "next/font/google";
 
 import "./_styles/globals.css";
+import Header from "./_components/Header";
+import Main from "./_components/Main";
+import Footer from "./_components/Footer";
 
 const quicksand = Quicksand({
   variable: "--font-quicksand",
@@ -59,8 +62,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${quicksand.variable} ${pollerOne.variable}`}>
-        {children}
+      <body
+        className={`${quicksand.variable} ${pollerOne.variable} font-quicksand bg-gray-50 text-gray-800`}
+      >
+        <Header />
+        <Main>{children}</Main>
+        <Footer />
       </body>
     </html>
   );
