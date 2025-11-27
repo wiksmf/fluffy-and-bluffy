@@ -63,7 +63,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${quicksand.variable} ${pollerOne.variable} font-quicksand bg-gray-50 text-gray-800`}
+        className={`${quicksand.variable} ${pollerOne.variable} font-txt bg-gray-50 font-quicksand text-gray-800`}
       >
         <Header />
         <Main>{children}</Main>
