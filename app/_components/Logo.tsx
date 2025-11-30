@@ -3,7 +3,7 @@ import Image from "next/image";
 
 function Logo() {
   return (
-    <Link href="/" className="focus relative">
+    <Link href="/" className="focus">
       <Image
         src="icons/logo.svg"
         width={60}

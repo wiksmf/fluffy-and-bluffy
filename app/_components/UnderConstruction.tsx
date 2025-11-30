@@ -2,13 +2,22 @@ import Image from "next/image";
 
 import underConstruction from "@/public/under-construction.jpg";
 
-export default function UnderConstruction({ message }: { message?: string }) {
+type UnderConstructionProps = {
+  message?: string;
+};
+
+const DEFAULT_MESSAGE =
+  "We're working hard to bring this page to life. Please check back soon!";
+
+export default function UnderConstruction({
+  message = DEFAULT_MESSAGE,
+}: UnderConstructionProps) {
   return (
     <section className="relative mt-20 flex h-[80vh] w-full items-center overflow-hidden">
       <Image
         src={underConstruction}
         fill
-        alt="Hero Image"
+        alt="Page under construction background image"
         placeholder="blur"
         className="absolute left-0 top-0 z-0 h-full w-full object-cover"
       />
@@ -21,8 +30,7 @@ export default function UnderConstruction({ message }: { message?: string }) {
         </h1>
 
         <p className="my-8 text-base leading-relaxed md:my-10 md:text-lg lg:text-xl">
-          {message ||
-            "We're working hard to bring this page to life. Please check back soon!"}
+          {message}
         </p>
       </div>
     </section>

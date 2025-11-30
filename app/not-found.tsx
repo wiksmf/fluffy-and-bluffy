@@ -13,9 +13,9 @@ function NotFound() {
       <Image
         src={notFound}
         fill
-        alt="Hero Image"
+        alt="A background image indicating a page not found error"
         placeholder="blur"
-        className="absolute left-0 top-0 h-full w-full object-cover z-0"
+        className="absolute left-0 top-0 z-0 h-full w-full object-cover"
       />
 
       <div className="absolute inset-0 bg-black/75"></div>

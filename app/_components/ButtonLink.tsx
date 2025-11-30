@@ -12,11 +12,13 @@ interface ButtonLinkProps {
   onClick?: () => void;
 }
 
-const buttonBase = `flex h-10 min-w-fit items-center justify-center rounded-full px-5 transition-transform duration-200 ease-in-out`;
+const buttonBase =
+  "flex h-10 min-w-fit items-center justify-center rounded-full px-5 transition-transform duration-200 ease-in-out";
 
 const buttonStyles: Record<ButtonLinkType, string> = {
-  primary: `relative px-5 before:absolute before:left-0 before:top-1/2 before:h-12 before:w-12 before:-translate-y-1/2 before:rounded-full before:bg-gradient-to-br before:from-red-200 before:to-yellow-200 before:shadow-md before:transition-all before:duration-200 before:ease-linear before:content-[''] hover:before:h-12 hover:before:w-[100%] focus:before:h-12 focus:before:w-[100%] focus-visible:outline-none`,
-  secondary: `focus`,
+  primary:
+    "relative px-5 before:absolute before:left-0 before:top-1/2 before:h-12 before:w-12 before:-translate-y-1/2 before:rounded-full before:bg-gradient-to-br before:from-red-200 before:to-yellow-200 before:shadow-md before:transition-all before:duration-200 before:ease-linear before:content-[''] hover:before:h-12 hover:before:w-[100%] focus:before:h-12 focus:before:w-[100%] focus-visible:outline-none",
+  secondary: "focus",
 };
 
 function ButtonLink({

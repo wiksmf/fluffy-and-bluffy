@@ -1,48 +1,43 @@
 import { useEffect, useRef } from "react";
 
-interface UseOutsideClickHandler {
-  (): void;
-}
-
 interface UseOutsideClickOptions {
   listenCapturing?: boolean;
   enableEscape?: boolean;
 }
 
+const DEFAULT_OPTIONS: UseOutsideClickOptions = {
+  listenCapturing: true,
+  enableEscape: true,
+};
+
 export function useOutsideClick(
-  handler: UseOutsideClickHandler,
-  { listenCapturing = true, enableEscape = true }: UseOutsideClickOptions = {},
+  handler: () => void,
+  options: UseOutsideClickOptions = DEFAULT_OPTIONS,
 ) {
-  const ref = useRef<HTMLDivElement | null>(null);
+  const { listenCapturing, enableEscape } = options;
+  const ref = useRef<HTMLElement | null>(null);
 
-  useEffect(
-    function () {
-      function handleClick(e: MouseEvent) {
-        if (
-          ref.current &&
-          !(ref.current as HTMLDivElement).contains(e.target as Node)
-        ) {
-          handler();
-        }
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        handler();
       }
+    };
 
-      function handleKeydown(e: KeyboardEvent) {
-        if (enableEscape && e.key === "Escape") {
-          handler();
-        }
+    const handleKeydown = (e: KeyboardEvent) => {
+      if (enableEscape && e.key === "Escape") {
+        handler();
       }
+    };
 
-      document.addEventListener("click", handleClick, listenCapturing);
-      document.addEventListener("keydown", handleKeydown);
+    document.addEventListener("click", handleClick, listenCapturing);
+    document.addEventListener("keydown", handleKeydown);
 
-      return () => {
-        document.removeEventListener("click", handleClick, listenCapturing);
-        document.removeEventListener("keydown", handleKeydown);
-      };
-    },
-
-    [handler, listenCapturing, enableEscape],
-  );
+    return () => {
+      document.removeEventListener("click", handleClick, listenCapturing);
+      document.removeEventListener("keydown", handleKeydown);
+    };
+  }, [handler, listenCapturing, enableEscape]);
 
   return ref;
 }
