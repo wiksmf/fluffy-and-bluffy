@@ -43,6 +43,7 @@ function HeaderMenu({ showMenu, setShowMenu }: HeaderMenuProps) {
       <ButtonLink
         href="/contact"
         customStyles="max-lg:order-0"
+        type="nav"
         onClick={closeMenu}
       >
         Book now
